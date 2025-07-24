@@ -5,7 +5,35 @@ Este proyecto es una copia/modificación del repositorio original Installing-Kub
 ## Modificaciones
 
 ```bash
-# Aplicar el hostname de todos los nodos 
+# (Opcional si se necesita)
+
+# Aplicar o modificar direcciones ip, SO: Ubuntu Server Ubuntu 24.04.2 LTS
+# En mi caso las VM tienen dos NICs, una en nat para acceso a internet y otra interna para la
+# Comunicaciòn entre nodos
+
+sudo nano /etc/netplan/50-cloud-init.yaml
+
+#network:
+#  version: 2
+#  ethernets:
+#    enp0s3:
+#      dhcp4: true
+#    enp0s8:
+#      dhcp4: false
+#      addresses:
+#        - 192.168.3.20/24
+
+# Instalar SSH para administraciòn remota, si no està previamente instalado.
+
+sudo apt install openssh-server -y
+sudo systemctl enable ssh.service
+sudo systemctl start shh
+sudo systemctl status ssh
+
+```
+
+```bash
+# Cambiar el hostname de todos los nodos, ej: k8s-control 
 sudo hostnamectl set-hostname k8s-control
 
 # Modificar, añadir el fichero hosts
