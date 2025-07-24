@@ -23,6 +23,8 @@ sudo nano /etc/netplan/50-cloud-init.yaml
 #      addresses:
 #        - 192.168.3.20/24
 
+sudo netplan apply
+
 # Instalar SSH para administraciòn remota, si no està previamente instalado.
 
 sudo apt install openssh-server -y
