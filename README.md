@@ -171,7 +171,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 # kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
 
 
-# install calcio
+# install calico
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/calico.yaml
 
 
@@ -192,7 +192,7 @@ kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/
 # Get this command from the 'kubeadm init' output instead (above)
 sudo kubeadm join x.x.x.x:6443 --token lllrj0.pystabmhlyt2svty --discovery-token-ca-cert-hash sha256:9d2fd15886eb176466640067f361ed2295de38188b057becf31d3bf5a4fb0b73
 ```
-## CHECK CALICO PODs 
+## CHECK PODs 
 
 ```bash
 kubectl -n kube-system get po -w
